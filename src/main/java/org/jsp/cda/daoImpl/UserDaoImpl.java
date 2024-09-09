@@ -1,4 +1,4 @@
-package org.jsp.cda.daoimpl;
+package org.jsp.cda.daoImpl;
 
 import java.util.List;
 import java.util.Optional;
