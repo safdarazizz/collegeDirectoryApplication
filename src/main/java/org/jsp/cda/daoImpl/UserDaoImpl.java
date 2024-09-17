@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public Optional<User> getUserById(Long id) {
+	public Optional<User> getUserById(long id) {
 		return repository.findById(id);
 	}
 
@@ -35,7 +35,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void deleteUserById(Long id) {
+	public void deleteUserById(long id) {
 		repository.deleteById(id);
 	}
 

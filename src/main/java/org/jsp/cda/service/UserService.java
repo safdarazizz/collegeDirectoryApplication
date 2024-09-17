@@ -3,18 +3,19 @@ package org.jsp.cda.service;
 import org.jsp.cda.entity.User;
 import org.jsp.cda.util.AuthUser;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface UserService {
 
 	ResponseEntity<?> findByUsernameAndPassword(AuthUser authUser);
-
+	
 	ResponseEntity<?> saveUser(User user);
 
-	ResponseEntity<?> getUserById(Long id);
+	ResponseEntity<?> getUserById(long id);
 
 	ResponseEntity<?> getUserByUsername(String username);
 
-	ResponseEntity<?> deleteUserById(Long id);
+	ResponseEntity<?> deleteUserById(long id);
 
 	ResponseEntity<?> findAllUsers();
 

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -27,7 +28,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class UserController {
 
 	@Autowired
-	UserService service;                      
+	UserService service;               
 
 	@Operation(summary = "To login into the account", description = "This API will accept the RequestBody of User entity and does the validation from the database to access the account")
 	@ApiResponses({@ApiResponse(responseCode = "200", description = "User login Successfully"), @ApiResponse(responseCode = "400", description = "Unable to login")})
@@ -39,14 +40,14 @@ public class UserController {
 	@Operation(summary = "To create a User", description = "This API will accept the RequestBody of User entity and persist to the database table")
 	@ApiResponses({@ApiResponse(responseCode = "200", description = "User Saved Successfully"), @ApiResponse(responseCode = "400", description = "Unable to save User")})
 	@PostMapping
-	public ResponseEntity<?> saveUser(@RequestBody User user) {
+	public ResponseEntity<?> saveUser(@RequestBody User user, MultipartFile file) {
 		return service.saveUser(user);
 	}
 	
 	@Operation(summary = "To fetch the User based on ID", description = "This API will fetch the Users available in the database table based on the ID")
 	@ApiResponses({@ApiResponse(responseCode = "200", description = "Fetched the User successfully"), @ApiResponse(responseCode = "400", description = "Could not fetch the User")})
 	@GetMapping("/id/{id}")
-	public ResponseEntity<?> getUserById(@PathVariable Long id) {
+	public ResponseEntity<?> getUserById(@PathVariable long id) {
 		return service.getUserById(id);
 	}
 	

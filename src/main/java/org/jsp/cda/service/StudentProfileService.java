@@ -1,10 +1,10 @@
 package org.jsp.cda.service;
 
-import org.jsp.cda.entity.StudentProfile;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface StudentProfileService {
 
-	ResponseEntity<?> saveStudentProfile(StudentProfile studentProfile);
+	ResponseEntity<?> saveStudentProfile(long id, MultipartFile file);
 
 }
